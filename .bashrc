@@ -452,3 +452,11 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Iniciar o gpg-agent
+GPG_TTY=$(tty)
+export GPG_TTY
+if ! pgrep -x gpg-agent > /dev/null; then
+    gpg-agent --daemon
+fi
+
